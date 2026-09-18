@@ -1,0 +1,17 @@
+{
+  "name": "playwright-pipeline",
+  "version": "1.0.0",
+  "description": "End-to-end test automation with Playwright and GitHub Actions",
+  "scripts": {
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:report": "playwright show-report"
+  },
+  "author": "Raphael Manzolli",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^22.20.2"
+  }
+}

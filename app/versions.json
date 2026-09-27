@@ -1,0 +1,10 @@
+{
+  "backend": {
+    "repository": "https://github.com/realworld-apps/nitro-prisma-zod-realworld-example-app.git",
+    "commit": "c8c66858a436a6e07f445fffe2253a65ff6dcb58"
+  },
+  "frontend": {
+    "repository": "https://github.com/mutoe/vue3-realworld-example-app.git",
+    "commit": "741c215ef0f674f90fcb03c5493a1b3a3a7f1b03"
+  }
+}

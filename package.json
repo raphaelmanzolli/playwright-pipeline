@@ -1,17 +1,27 @@
 {
   "name": "playwright-pipeline",
   "version": "1.0.0",
-  "description": "End-to-end test automation with Playwright and GitHub Actions",
+  "description": "RealWorld UI and API tests with Playwright, TypeScript and Page Objects",
   "scripts": {
+    "app:setup": "node app/setup.mjs",
     "test": "playwright test",
+    "test:api": "playwright test tests/api",
     "test:ui": "playwright test --ui",
-    "test:report": "playwright show-report"
+    "test:headed": "playwright test --headed",
+    "test:mixed": "playwright test tests/mixed",
+    "test:report": "playwright show-report",
+    "typecheck": "tsc"
   },
   "author": "Raphael Manzolli",
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
-    "@playwright/test": "^1.63.0",
-    "@types/node": "^22.20.2"
+    "@libsql/client": "0.17.0",
+    "@playwright/test": "1.63.0",
+    "@types/node": "22.20.2",
+    "typescript": "5.9.3"
+  },
+  "engines": {
+    "node": ">=22.16.0"
   }
 }

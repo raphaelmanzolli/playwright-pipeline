@@ -42,7 +42,7 @@ The pipeline uses Node.js 22.16.0, matching [.nvmrc](../.nvmrc). The first setup
 
 The suite does not reuse existing servers, to avoid accidentally testing another application. Both ports must be free. Do not run two suites simultaneously in the same directory.
 
-Tests run with two workers and unique data for each scenario. The backend uses a fixed local test secret, configured in [app/start-backend.mjs](../app/start-backend.mjs).
+Tests run sequentially with one worker and unique data for each scenario. The API and fixture cleanup share one SQLite database; parallel writes caused lock errors in CI. The backend uses a fixed local test secret, configured in [app/start-backend.mjs](../app/start-backend.mjs).
 
 ## Database and cleanup
 
@@ -50,7 +50,7 @@ The dedicated test database is stored at `.realworld/test.db`. The backend launc
 
 Fixtures clean up test data after normal test execution, including failed assertions. Since the RealWorld specification does not provide user deletion, [app/database.ts](../app/database.ts) deletes each scenario's account by its unique email address. Foreign keys also remove that user's articles, comments, and favorites.
 
-Cleanup runs in a `finally` block in [fixtures/test.ts](../fixtures/test.ts). Forcibly terminating the process may prevent cleanup and leave data behind. UUIDs prevent another test from reusing that data. The suite does not clear the entire database before each run.
+Cleanup runs in a `finally` block in [fixtures/test.ts](../fixtures/test.ts) and waits up to five seconds for a temporary database lock before failing. Forcibly terminating the process may prevent cleanup and leave data behind. UUIDs prevent another test from reusing that data. The suite does not clear the entire database before each run.
 
 The mixed scenario also deletes its article through the API and checks for a subsequent 404 response. Fixture cleanup handles any remaining data if an earlier assertion fails.
 

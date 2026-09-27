@@ -4,7 +4,7 @@ export class ArticlePage {
   constructor(private page: Page) {}
 
   get title() {
-    return this.page.getByRole('heading', { level: 1 });
+    return this.page.getByTestId('article-banner').getByRole('heading', { level: 1 });
   }
 
   get body() {

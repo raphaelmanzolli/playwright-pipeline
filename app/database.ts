@@ -9,6 +9,7 @@ export async function deleteTestUser(email: string) {
   });
 
   try {
+    await database.execute('PRAGMA busy_timeout = 5000');
     await database.execute('PRAGMA foreign_keys = ON');
     // Foreign keys also remove this user's articles, comments and favorites.
     await database.execute({ sql: 'DELETE FROM User WHERE email = ?', args: [email] });

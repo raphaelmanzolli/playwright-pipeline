@@ -56,6 +56,4 @@ The mixed scenario also deletes its article through the API and checks for a sub
 
 ## Report screenshot
 
-[The README screenshot](images/playwright-report.png) was captured from the local HTML report of the successful RealWorld run on September 26, 2026. It is a static example, not a live CI result.
-
-At the time the screenshot was added, the latest successful GitHub Actions run covered the previous suite. The README's live badge follows the published workflow; the RealWorld suite still needs its first remote CI run.
+[The README screenshot](images/playwright-report.png) was captured from a successful local RealWorld run. It is a static example; the live CI status is shown by the README badge and the workflow history.

@@ -6,7 +6,7 @@ Test automation for an article publishing application using **Playwright, TypeSc
 
 <a href="docs/images/playwright-report.png"><img src="docs/images/playwright-report.png" alt="Local RealWorld test report showing passing API, UI, and mixed scenarios" width="640"></a>
 
-*Local RealWorld run in Chromium, September 26, 2026. The CI badge reflects the published workflow; its latest successful run still covers the previous suite. RealWorld CI validation is pending.*
+*RealWorld test report from a successful Chromium run. The same suite is validated by GitHub Actions.*
 
 ## Coverage and main flow
 
